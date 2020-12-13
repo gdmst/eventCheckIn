@@ -14,6 +14,11 @@ export class EventListComponent implements OnInit {
   ngOnInit() {
   }
 
+  viewEvent(event) {
+    this.eventService.selectedEvent = event;
+    this.router.navigate(['eventDetail']);
+  }
+
   editEvent(event){
     console.log(event);
     this.eventService.selectedEvent = event;
