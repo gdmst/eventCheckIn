@@ -1,0 +1,77 @@
+<form [formGroup]="myForm" (ngSubmit)="saveForm(myForm)">
+<div class="p-grid">
+    <div class="p-col-3">
+    </div>
+    <div class="p-col-6">
+      <label>ชื่อ Event</label> <input type="text" formControlName="eventName" pInputText placeholder="ชื่อ event">
+    </div>
+    <div class="p-col-3">
+    </div>
+
+
+    <div class="p-col-3">
+    </div>
+    <div class="p-col-3">
+      <label>วันที่เริ่ม</label><input type="date" formControlName="startDate" pInputText placeholder="วันที่เริ่ม">
+    </div>
+    <div class="p-col-3">
+      <label>วันที่สิ้นสุด</label> <input type="date" formControlName="endDate" pInputText placeholder="วันที่เริ่ม">
+    </div>
+    <div class="p-col-3">
+    </div>
+
+
+
+    <div class="p-col-3">
+    </div>
+    <div class="p-col-3">
+      <label>เวลาเริ่ม</label> <input type="time" formControlName="startTime" pInputText placeholder="วันที่เริ่ม">
+    </div>
+    <div class="p-col-3">
+      <label>เวลาสิ้นสุด</label>  <input type="time" formControlName="endTime" pInputText placeholder="วันที่เริ่ม">
+    </div>
+    <div class="p-col-3">
+    </div>
+
+
+    <div class="p-col-3">
+    </div>
+    <div class="p-col-3">
+      <label>จำนวน</label>  <input type="number" formControlName="amount" pInputText placeholder="วันที่เริ่ม">
+    </div>
+    <div class="p-col-3">
+      <label>สถานที่</label> <input type="text" formControlName="location" pInputText>
+    </div>
+    <div class="p-col-3">
+    </div>
+
+
+    <div class="p-col-3">
+    </div>
+    <div class="p-col-6">
+    <label>แผนกที่สามารถเข้าร่วมอบรมได้</label>
+    <p-dropdown [options]="deptList" formControlName="eventProperty" optionLabel="deptName"></p-dropdown>
+    </div>
+    <div class="p-col-3">
+    </div>
+<div class="p-col-3">
+    </div>
+    <div class="p-col-6">
+    <label>รายละเอียด</label>
+    <textarea [rows]="5" [cols]="30"  formControlName="description" pInputTextarea autoResize="autoResize"></textarea>
+    </div>
+    <div class="p-col-3">
+    </div>
+
+  <div class="p-col-3">
+    </div>
+    <div class="p-col-6">
+    <button pButton type="submit" icon="pi pi-plus" iconPos="left" class="ui-button-info" label="เพิ่ม event"></button>
+    </div>
+    <div class="p-col-3">
+    </div>
+</div>
+</form>
+
+
+<app-event-list></app-event-list>
