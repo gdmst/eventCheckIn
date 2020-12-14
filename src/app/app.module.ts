@@ -16,13 +16,19 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { EventDetailComponent } from './event/event-detail/event-detail.component';
 import {MenubarModule} from 'primeng/menubar';
 import { MenubarComponent } from './components/menubar/menubar.component';
+import { RegistListComponent } from './event/regist-list/regist-list.component';
+import { HttpClientModule } from '@angular/common/http';
+import { AdminloginComponent } from './staff/adminlogin/adminlogin.component';
+
 @NgModule({
   declarations: [
     AppComponent,
     EventListComponent,
     AddeventComponent,
     EventDetailComponent,
-    MenubarComponent
+    MenubarComponent,
+    RegistListComponent,
+    AdminloginComponent
 
   ],
   imports: [
@@ -36,7 +42,8 @@ import { MenubarComponent } from './components/menubar/menubar.component';
     DropdownModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
-    MenubarModule
+    MenubarModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
