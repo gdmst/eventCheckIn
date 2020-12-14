@@ -1,3 +1,4 @@
+<!--
 <h2>Login</h2>
 <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
     <div class="form-group">
@@ -19,6 +20,46 @@
             <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
             Login
         </button>
-        <a routerLink="/register" class="btn btn-link">Register</a>
+   
     </div>
 </form>
+-->
+
+
+
+<div class="p-grid p-align-stretch vertical-container">
+    <div class="p-col">
+        <div class="box box box-stretched"></div>
+    </div>
+    <div class="p-col">
+        <div class="box box box-stretched"><p-card header="Login" [style]="{width: '360px'}">
+ 
+
+
+            <div class="ui-g ui-fluid"><!--formUser-->
+                <div class="ui-g-12 ui-md-16">
+                    <div class="ui-inputgroup">
+                        <span class="ui-inputgroup-addon"><i class="pi pi-user" style="line-height: 1.25;"></i></span>
+                        <input type="text" pInputText placeholder="Username">         
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ui-g ui-fluid"><!--formPassword-->
+                <div class="ui-g-12 ui-md-16">
+                    <div class="ui-inputgroup">
+                        <span class="ui-inputgroup-addon"><i class="pi pi-key" style="line-height: 1.25;"></i></span>
+                        <input type="password" pInputText placeholder="Password">         
+                    </div>
+                </div>
+            </div>
+            
+            <p-footer>
+            <button pButton type="button" label="ลงชื่อเข้าใช้" class="ui-button-raised"></button><!--ลงชื่อเข้าใช้น้าา-->
+            </p-footer>
+            </p-card></div>
+    </div>
+    <div class="p-col">
+        <div class="box box box-stretched"></div>
+    </div>
+</div>

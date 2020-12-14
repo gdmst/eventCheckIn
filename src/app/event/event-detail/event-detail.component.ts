@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { EventService } from 'src/app/service/event.service';
+import { RegistrationService } from 'src/app/service/registration.service';
 
 @Component({
   selector: 'app-event-detail',
@@ -9,7 +10,7 @@ import { EventService } from 'src/app/service/event.service';
 })
 export class EventDetailComponent implements OnInit {
 
-  constructor(public eventService: EventService, private router:Router) { }
+  constructor(public eventService: EventService, private router:Router, private regService: RegistrationService) { }
 
   ngOnInit() {
   }

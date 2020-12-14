@@ -19,6 +19,7 @@ import { MenubarComponent } from './components/menubar/menubar.component';
 import { RegistListComponent } from './event/regist-list/regist-list.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AdminloginComponent } from './staff/adminlogin/adminlogin.component';
+import {TableModule} from 'primeng/table';
 
 import {FieldsetModule} from 'primeng/fieldset';
 @NgModule({
@@ -45,7 +46,8 @@ import {FieldsetModule} from 'primeng/fieldset';
     ReactiveFormsModule,
     MenubarModule,
     HttpClientModule,
-    FieldsetModule
+    FieldsetModule,
+    TableModule
   ],
   providers: [],
   bootstrap: [AppComponent]
