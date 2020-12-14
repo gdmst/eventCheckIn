@@ -1,6 +1,6 @@
 <div class="p-grid">
 
-  <div class="p-col-12"></div>  <!--บรรทัดแรก--> 
+  <div class="p-col-12"></div>  <!--บรรทัดแรก-->
   <div class="p-col-1">  <!--บรรทัด2-->
     <button pButton icon="pi pi-angle-left" type="button" label="กลับ" class="ui-button-raised "
       (click)="backhome()"></button>
@@ -22,15 +22,15 @@
   <div class="p-col-4">
     <p-card header="จำนวนที่เปิดรับทั้งหมด: {{ this.eventService.selectedEvent.amount }}" subheader="จำนวนผู้เข้าร่วมตอนนี้: {{ this.eventService.selectedEvent.registered }} " [style]="{width: '360px'}" styleClass="ui-card-shadow">
 
-  
+
       <p-footer>
-       <button pButton type="button" label="เข้าร่วม" icon="pi pi-sign-in" style="margin-right: .25em"></button>
-     
-       <button pButton type="button" label="ไม่สามารถเข้าร่วมได้" icon="pi pi-times" class="ui-button-secondary"></button>
-        
+       <button pButton type="button" (click)="attend(this.eventService.selectedEvent)"  label="เข้าร่วม" icon="pi pi-sign-in" style="margin-right: .25em"></button>
+
+       <button pButton type="button" label="ไม่สามารถเข้าร่วมได้"  icon="pi pi-times" class="ui-button-secondary"></button>
+
        <button pButton type="button" label="ไม่เข้าร่วม" icon="pi pi-sign-out" class="ui-button-danger"></button>
 
-          
+
       </p-footer>
   </p-card>
   </div>
