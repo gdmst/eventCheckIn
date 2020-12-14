@@ -16,10 +16,14 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { EventDetailComponent } from './event/event-detail/event-detail.component';
 import {MenubarModule} from 'primeng/menubar';
 import { MenubarComponent } from './components/menubar/menubar.component';
+<<<<<<< HEAD
 import { RegistListComponent } from './event/regist-list/regist-list.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AdminloginComponent } from './staff/adminlogin/adminlogin.component';
 
+=======
+import {FieldsetModule} from 'primeng/fieldset';
+>>>>>>> 9607d730f5ced28b4951fd3b8ea22a7210769767
 @NgModule({
   declarations: [
     AppComponent,
@@ -43,7 +47,11 @@ import { AdminloginComponent } from './staff/adminlogin/adminlogin.component';
     BrowserAnimationsModule,
     ReactiveFormsModule,
     MenubarModule,
+<<<<<<< HEAD
     HttpClientModule
+=======
+    FieldsetModule
+>>>>>>> 9607d730f5ced28b4951fd3b8ea22a7210769767
   ],
   providers: [],
   bootstrap: [AppComponent]
