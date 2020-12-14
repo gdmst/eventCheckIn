@@ -44,11 +44,8 @@ import {FieldsetModule} from 'primeng/fieldset';
     BrowserAnimationsModule,
     ReactiveFormsModule,
     MenubarModule,
-<<<<<<< HEAD
-    HttpClientModule
-=======
+    HttpClientModule,
     FieldsetModule
->>>>>>> 9607d730f5ced28b4951fd3b8ea22a7210769767
   ],
   providers: [],
   bootstrap: [AppComponent]
