@@ -19,6 +19,7 @@ import { MenubarComponent } from './components/menubar/menubar.component';
 import { RegistListComponent } from './event/regist-list/regist-list.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AdminloginComponent } from './staff/adminlogin/adminlogin.component';
+import {TableModule} from 'primeng/table';
 
 import {FieldsetModule} from 'primeng/fieldset';
 import { UserloginComponent } from './user/userlogin/userlogin.component';
@@ -53,7 +54,8 @@ import { MessageModule } from 'primeng/message';
     HttpClientModule,
     FieldsetModule,
     MessageModule,
-    MessagesModule
+    MessagesModule,
+    TableModule
   ],
   providers: [],
   bootstrap: [AppComponent]
