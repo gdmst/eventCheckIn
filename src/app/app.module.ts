@@ -21,6 +21,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { AdminloginComponent } from './staff/adminlogin/adminlogin.component';
 
 import {FieldsetModule} from 'primeng/fieldset';
+import { UserloginComponent } from './user/userlogin/userlogin.component';
+import { MyEventComponent } from './user/my-event/my-event.component';
+import { MessagesModule } from 'primeng/messages';
+import { MessageModule } from 'primeng/message';
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,7 +33,9 @@ import {FieldsetModule} from 'primeng/fieldset';
     EventDetailComponent,
     MenubarComponent,
     RegistListComponent,
-    AdminloginComponent
+    AdminloginComponent,
+    UserloginComponent,
+    MyEventComponent
 
   ],
   imports: [
@@ -45,7 +51,9 @@ import {FieldsetModule} from 'primeng/fieldset';
     ReactiveFormsModule,
     MenubarModule,
     HttpClientModule,
-    FieldsetModule
+    FieldsetModule,
+    MessageModule,
+    MessagesModule
   ],
   providers: [],
   bootstrap: [AppComponent]
