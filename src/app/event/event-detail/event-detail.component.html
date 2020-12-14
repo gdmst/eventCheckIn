@@ -1,8 +1,48 @@
 <div class="p-grid">
-    <div class="p-col-1">
-      {{ this.eventService.selectedEvent.eventName }} hello
-    </div>
-    <div class="p-col-1">
-      {{ this.eventService.selectedEvent.amount }}
-    </div>
+
+  <div class="p-col-12"></div>  <!--บรรทัดแรก--> 
+  <div class="p-col-1">  <!--บรรทัด2-->
+    <button pButton icon="pi pi-angle-left" type="button" label="กลับ" class="ui-button-raised "
+      (click)="backhome()"></button>
+  </div>
+  <div class="p-col-7">
+    <p-card header="{{ this.eventService.selectedEvent.eventName }}" [style]="{width: '913px'}">
+      <p-header>
+        <img src="Card" src="assets/images/cover2.png">
+      </p-header>
+
+      <div>วันที่: {{ this.eventService.selectedEvent.startDate }} - {{ this.eventService.selectedEvent.endDate }}
+      </div>
+      <div>เวลา: {{ this.eventService.selectedEvent.startTime }} - {{ this.eventService.selectedEvent.endTime }} </div>
+      <p-footer>
+        <div>สถานที่: {{ this.eventService.selectedEvent.location }} </div>
+      </p-footer>
+    </p-card>
+  </div>
+  <div class="p-col-4">
+    <p-card header="จำนวนที่เปิดรับทั้งหมด: {{ this.eventService.selectedEvent.amount }}" subheader="จำนวนผู้เข้าร่วมตอนนี้: {{ this.eventService.selectedEvent.registered }} " [style]="{width: '360px'}" styleClass="ui-card-shadow">
+
+  
+      <p-footer>
+       <button pButton type="button" label="เข้าร่วม" icon="pi pi-sign-in" style="margin-right: .25em"></button>
+     
+       <button pButton type="button" label="ไม่สามารถเข้าร่วมได้" icon="pi pi-times" class="ui-button-secondary"></button>
+        
+       <button pButton type="button" label="ไม่เข้าร่วม" icon="pi pi-sign-out" class="ui-button-danger"></button>
+
+          
+      </p-footer>
+  </p-card>
+  </div>
+
+  <div class="p-col-1"></div>   <!--บรรทัด3-->
+  <div class="p-col-7">
+    <p-fieldset legend="รายละเอียด">
+      {{ this.eventService.selectedEvent.description }}
+    </p-fieldset>
+  </div>
+  <div class="p-col-4"></div>
+  <div class="p-col-1"></div>   <!--บรรทัด4-->
+  <div class="p-col-2"><button pButton type="button" label="แก้ไข" icon="pi pi-pencil" (click)="editEvent(event)" class="ui-button-raised ui-button-warning"></button></div>
+
 </div>

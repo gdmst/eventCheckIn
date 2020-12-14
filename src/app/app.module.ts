@@ -16,6 +16,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { EventDetailComponent } from './event/event-detail/event-detail.component';
 import {MenubarModule} from 'primeng/menubar';
 import { MenubarComponent } from './components/menubar/menubar.component';
+import {FieldsetModule} from 'primeng/fieldset';
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,7 +37,8 @@ import { MenubarComponent } from './components/menubar/menubar.component';
     DropdownModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
-    MenubarModule
+    MenubarModule,
+    FieldsetModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { EventService } from 'src/app/service/event.service';
 
 @Component({
@@ -8,14 +9,20 @@ import { EventService } from 'src/app/service/event.service';
 })
 export class EventDetailComponent implements OnInit {
 
-  constructor(public eventService: EventService) { }
+  constructor(public eventService: EventService, private router:Router) { }
 
   ngOnInit() {
   }
 
   editEvent(event) {
     this.eventService.selectedEvent = event;
+    this.router.navigate(['editEvent']);
 
   }
+
+  backhome() {
+    this.router.navigate(['events']);
+  }
+
 
 }
