@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MenuItem } from 'primeng/api';
+import { AuthenticationService } from 'src/app/service/authentication.service';
 @Component({
   selector: 'app-menubar',
   templateUrl: './menubar.component.html',
@@ -7,7 +8,7 @@ import { MenuItem } from 'primeng/api';
 })
 export class MenubarComponent implements OnInit {
 
-  constructor() { }
+  constructor(private authservice: AuthenticationService) { }
 
     items: MenuItem[];
 

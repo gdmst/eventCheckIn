@@ -17,6 +17,7 @@ export class AddeventComponent implements OnInit {
   };
 
 
+
   deptList: Department[]= [
     {
       deptID: 0,
@@ -40,14 +41,16 @@ export class AddeventComponent implements OnInit {
       description: new FormControl('', [Validators.required]),
       startDate: new FormControl('', [Validators.required]),
       endDate: new FormControl('', [Validators.required]),
-      startTime: new FormControl('00:00', [Validators.required]),
-      endTime: new FormControl('00:00', [Validators.required]),
+      startTime: new FormControl('', [Validators.required]),
+      endTime: new FormControl('', [Validators.required]),
       amount: new FormControl(0, [Validators.required]),
-      registered: new FormControl(null),
-      eventStatus:new FormControl('1'),
+      registered: new FormControl(0),
+      eventStatus:new FormControl(1),
       location: new FormControl('', [Validators.required]),
-      reportURL: new FormControl(null),
-      eventProperty: new FormControl('', [Validators.required]),
+      eventProperty: new FormControl({
+        deptID: 0,
+        deptName: "ทุกแผนก",
+      }, [Validators.required]),
     });
 
     if(!!this.eventService.selectedEvent) {
@@ -56,6 +59,8 @@ export class AddeventComponent implements OnInit {
   }
 
   saveForm(){
+    const dept = this.myForm.get('eventProperty').value.deptID;
+    this.myForm.get('eventProperty').setValue(dept);
     console.log(this.myForm.getRawValue());
     this.eventService.addEvent(this.myForm.getRawValue());
   }
