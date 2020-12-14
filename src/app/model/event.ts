@@ -8,7 +8,6 @@ export interface Event {
   endTime: string;
   amount:number;
   registered:number;
-  reportURL: string;
   eventStatus: number;
   location:string;
   eventProperty: number;
