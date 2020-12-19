@@ -25,7 +25,6 @@ export class EventService {
       eventProperty: 1,
     },
   ];
-
   deptList: Department[] = [
     {
       deptID: 0,
@@ -39,6 +38,18 @@ export class EventService {
       deptID: 2,
       deptName: "แผนกไอที",
     },
+    {
+      deptID: 3,
+      deptName: "แผนกบัญชี"
+    },
+    {
+      deptID: 4,
+      deptName: "แผนกบุคคล"
+    },
+    {
+      deptID: 5,
+      deptName: "แผนกบริหาร"
+    }
   ];
 
   constructor(public http: HttpClient) {
@@ -52,10 +63,24 @@ export class EventService {
     });
   }
 
+  deleteEvent(eventID) {
+    this.http.delete<Event[]>("/EventCheck-In/api/event/"+eventID).subscribe((value) => {
+      this.getEvent();
+      console.log("delete event", value);
+    });
+  }
+
   addEvent(payload) {
     this.http.post<Event[]>("/EventCheck-In/api/event/createEvent", payload).subscribe((value) => {
-      this.eventList = value;
+      this.getEvent();
       console.log("create event", value);
+    });
+  }
+
+  updateEvent(payload) {
+    this.http.put<Event[]>("/EventCheck-In/api/event/updateEvent", payload).subscribe((value) => {
+      this.getEvent();
+      console.log("update event", value);
     });
   }
 }

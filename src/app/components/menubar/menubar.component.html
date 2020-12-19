@@ -1,2 +1,16 @@
-<p-menubar [model]="items"></p-menubar>
-<p-button (click)="this.authservice.logout()" label="ออกจากระบบ" class="btn btn-primary"></p-button>
+<p-menubar>
+<p-button (click)="goHome()" label="หน้าหลัก" styleClass="ui-button-info"></p-button>
+<p-button (click)="goToMyEvents()"
+label="งานจัดอบรมที่เข้าร่วม"
+styleClass="ui-button-info"
+*ngIf="this.currentUser.typeID === 2"
+></p-button>
+<p-button (click)="goToCreate()"
+label="เพิ่มงานจัดอบรม" styleClass="ui-button-info"
+*ngIf="this.currentUser.typeID === 1"></p-button>
+<p-button (click)="this.authservice.logout()"
+label="ออกจากระบบ" styleClass="ui-button-danger" *ngIf="!!this.authservice.currentUserValue"></p-button>
+<p-button (click)="goToLogin()" label="เข้าสู่ระบบ" *ngIf="!this.authservice.currentUserValue" class="btn btn-primary"></p-button>
+
+</p-menubar>
+<br>

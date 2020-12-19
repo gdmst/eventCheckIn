@@ -1,1 +1,40 @@
-<p>regist-list works!</p>
+
+<div class="p-grid" *ngIf="this.currentUser.typeID === 1">
+  <!--บรรทัด5-->
+<div class="p-col-1"></div> <!--บรรทัด6-->
+<div><p>รายชื่อผู้เข้าร่วม</p>  </div>
+<div class="p-col-11"></div>
+<div class="p-col-1"></div>
+<div class="p-col-1"></div> <!--บรรทัด7-->
+<div class="p-col-10"><p-table [value]="this.regService.participants">
+  <ng-template pTemplate="header">
+      <tr>
+          <th>ชื่อ</th>
+          <th>รหัสพนักงาน</th>
+          <th>ฝ่าย</th>
+          <th>วันที่และเวลาลงทะเบียน</th>
+          <th>วันที่และเวลามาร่วมงาน</th>
+          <th></th>
+
+      </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-item>
+      <tr>
+          <td>{{item.empUser.fname}}  {{item.empUser.lname}}</td>
+          <td>{{item.empUser.empID}}</td>
+          <td>{{ this.eventService.deptList[item.empUser.dept.deptID]['deptName'] }}</td>
+          <td>{{item.registDateTime}}</td>
+          <td>{{item.checkinDateTime}}</td>
+          <td><button pButton type="button" (click)="checkinEvent(item)"
+          [disabled]="!!item.checkinDateTime"
+          label="เข้าร่วม" icon="pi pi-check" class="ui-button-raised ui-button-success"></button>
+            <button pButton type="button" label="ลบ" icon="pi pi-trash"
+            (click)="cancelregist(item)"
+            class="ui-button-raised ui-button-danger"></button>
+          </td>
+
+      </tr>
+  </ng-template>
+</p-table>
+</div>
+</div>

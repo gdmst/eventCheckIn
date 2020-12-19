@@ -10,12 +10,19 @@ import { AuthenticationService } from 'src/app/service/authentication.service';
   styleUrls: ['./event-detail.component.css']
 })
 export class EventDetailComponent implements OnInit {
-
+  currentUser = {
+    "typeID": 0
+  }
   constructor(
     public eventService: EventService,
     private router:Router,
     private regService: RegistrationService,
-    private auth: AuthenticationService) { }
+    private auth: AuthenticationService) {
+      if (!!this.auth.currentUserValue) {
+        this.auth.getProfile();
+        this.currentUser = this.auth.currentUserValue;
+      }
+    }
 
   ngOnInit() {
   }
@@ -33,5 +40,15 @@ export class EventDetailComponent implements OnInit {
       this.auth.getProfile();
       this.regService.registerEvent(event);
     }
+
+  cancel() {
+    const reg = {
+       "evt": this.eventService.selectedEvent,
+       "empUser": this.auth.profile
+    }
+    console.log(reg);
+    const eventID = this.eventService.selectedEvent.eventID;
+    this.regService.cancel(eventID, reg);
+  }
 
 }

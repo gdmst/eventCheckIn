@@ -1,0 +1,34 @@
+<div class="p-grid">
+  <div class="p-col-3">
+    <button pButton icon="pi pi-angle-left" type="button" label="กลับ" class="ui-button-raised "
+      (click)="backhome()"></button></div>
+  <div class="p-col-9">
+  <h2>งานจัดอบรมของฉัน</h2>
+  </div>
+  </div>
+  <div class="p-grid"  *ngFor="let event of this.reg.myEvents">
+  <!--บรรทัดแรก-->
+  <div class="p-col-3">  <!--บรรทัด2-->
+  </div>
+  <div class="p-col-6">
+    <p-card header="{{ event.eventName }}" [style]="{width: '800px'}">
+      <p-header>
+        <img src="Card" src="assets/images/cover2.png">
+      </p-header>
+
+
+      <p-footer>
+        <div>สถานที่: {{ event.location }} วันที่จัดอบรม: {{ event.startDate}} - {{event.endDate}} เวลาจัดอบรม:{{event.startTime}} - {{event.endTime}}
+
+       <button pButton type="button" label="ดูรายละเอียด" (click)="viewEvent(event)" class="ui-button-secondary"></button>
+        </div>
+      </p-footer>
+    </p-card>
+  </div>
+  <div class="p-col-3"></div>
+  </div>
+  <!--บรรทัด3-->
+
+
+
+

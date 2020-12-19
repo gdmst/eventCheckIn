@@ -30,6 +30,18 @@ export class AddeventComponent implements OnInit {
     {
       deptID: 2,
       deptName: "แผนกไอที",
+    },
+    {
+      deptID: 3,
+      deptName: "แผนกบัญชี"
+    },
+    {
+      deptID: 4,
+      deptName: "แผนกบุคคล"
+    },
+    {
+      deptID: 5,
+      deptName: "แผนกบริหาร"
     }
   ];
   constructor(public eventService: EventService) { }
@@ -47,10 +59,7 @@ export class AddeventComponent implements OnInit {
       registered: new FormControl(0),
       eventStatus:new FormControl(1),
       location: new FormControl('', [Validators.required]),
-      eventProperty: new FormControl({
-        deptID: 0,
-        deptName: "ทุกแผนก",
-      }, [Validators.required]),
+      eventProperty: new FormControl(null, [Validators.required]),
     });
 
     if(!!this.eventService.selectedEvent) {
@@ -59,10 +68,17 @@ export class AddeventComponent implements OnInit {
   }
 
   saveForm(){
-    const dept = this.myForm.get('eventProperty').value.deptID;
-    this.myForm.get('eventProperty').setValue(dept);
-    console.log(this.myForm.getRawValue());
-    this.eventService.addEvent(this.myForm.getRawValue());
+    if (!this.myForm.get('eventID').value) {
+      const dept = this.myForm.get('eventProperty').value.deptID;
+      this.myForm.get('eventProperty').setValue(dept);
+      console.log(this.myForm.getRawValue());
+      this.eventService.addEvent(this.myForm.getRawValue());
+    } else {
+      const dept = this.myForm.get('eventProperty').value.deptID;
+      this.myForm.get('eventProperty').setValue(dept);
+      console.log(this.myForm.getRawValue());
+      this.eventService.updateEvent(this.myForm.getRawValue());
+    }
   }
 
 }

@@ -6,7 +6,7 @@ export interface Registration {
   checkInDateTime: string;
   registDateTime: string;
   evt: Event;
-  emp: EmployeeUser;
+  empUser: EmployeeUser;
   status: number;
 }
 

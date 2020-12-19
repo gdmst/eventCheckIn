@@ -1,18 +1,29 @@
 <div class="p-grid">
+<div class="p-col-1">
+</div>
+<div class="p-col-10">
+<div class="p-grid">
     <div class="p-col-3"  *ngFor ="let event of this.eventService.eventList">
-      <p-card header="{{ event.eventName }}" subheader="จำนวนคนสมัคร {{event.registered}} / {{ event.amount }}" [style]="{width: '360px'}" styleClass="ui-card-shadow">
+      <p-card header="{{ event.eventName }}" subheader="จำนวนคนสมัคร {{event.registered}} / {{ event.amount }}" [style]="{width: '260px'}" styleClass="ui-card-shadow">
         <p-header>
           <img src="Card" src="assets/images/cover.png">
         </p-header>
         <div>
         {{ event.startDate }} <br>
-        {{ event.description }}</div>
+        {{ event.description | slice:1:100 }} ... </div>
         <p-footer>
-          <button pButton type="button" label="ดูรายละเอียด" (click)="viewEvent(event)" icon="pi pi-check" style="margin-right: .25em"></button>
-          <button pButton type="button" label="แก้ไข" (click)="editEvent(event)" icon="pi pi-check" style="margin-right: .25em"></button>
-
+          <button pButton type="button" label="ดูรายละเอียด" (click)="viewEvent(event)"
+            icon="pi pi-eye" style="margin-right: .25em" ></button>
+            <div *ngIf="this.currentUser.typeID === 1" style="margin-top: 10px;">
+          <button pButton type="button" label="ลบ" (click)="deleteEvent(event.eventID)"
+            icon="pi pi-trash" class="ui-button-danger" style="margin-right: .25em"></button>
+          <button pButton type="button" label="แก้ไข" (click)="editEvent(event)"
+            icon="pi pi-pencil" class="ui-button-secondary"  style="margin-right: .25em"></button>
+            </div>
         </p-footer>
       </p-card>
     </div>
 </div>
-
+<div class="p-col-1">
+</div>
+</div>
