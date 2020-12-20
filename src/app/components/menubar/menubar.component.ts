@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MenuItem } from 'primeng/api';
 import { AuthenticationService } from 'src/app/service/authentication.service';
 import { Router } from '@angular/router';
+import { Command } from 'protractor';
 @Component({
   selector: 'app-menubar',
   templateUrl: './menubar.component.html',
@@ -23,20 +24,33 @@ export class MenubarComponent implements OnInit {
 
   }
 
-    items: MenuItem[];
+  items0: MenuItem[];
+  items1: MenuItem[];
+  items2: MenuItem[];
 
-    ngOnInit() {
-    }
-    goHome(){
-      this.router.navigate(['']);
-    }
-    goToMyEvents() {
-      this.router.navigate(['myevents']);
-    }
+  ngOnInit() {
+    this.items0 = [
+      { label: 'หน้าหลัก', icon: 'pi pi-home', command: (event: any) => { this.router.navigate(['']); } },
+    ];
+    this.items1 = [
+      { label: 'หน้าหลัก', icon: 'pi pi-home', command: (event: any) => { this.router.navigate(['']); } },
+      { label: 'งานจัดอบรมที่เข้าร่วม', icon: 'pi pi-sign-out', command: (event: any) => { this.router.navigate(['myevents']); } },
+    ];
+    this.items2 = [
+      { label: 'หน้าหลัก', icon: 'pi pi-home', command: (event: any) => { this.router.navigate(['']); } },
+      { label: 'เพิ่มงานจัดอบรม', icon: 'pi pi-plus', command: (event: any) => { this.router.navigate(['createEvent']); } }
+    ];
+  }
+  goHome() {
+    this.router.navigate(['']);
+  }
+  goToMyEvents() {
+    this.router.navigate(['myevents']);
+  }
 
-    goToLogin() {
-      this.router.navigate(['userlogin']);
-    }
+  goToLogin() {
+    this.router.navigate(['userlogin']);
+  }
 
 
   goToCreate() {

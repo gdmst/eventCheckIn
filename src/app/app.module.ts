@@ -20,6 +20,8 @@ import { RegistListComponent } from './event/regist-list/regist-list.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AdminloginComponent } from './staff/adminlogin/adminlogin.component';
 import {TableModule} from 'primeng/table';
+import {TabMenuModule} from 'primeng/tabmenu';
+import {OverlayPanelModule} from 'primeng/overlaypanel';
 
 import {FieldsetModule} from 'primeng/fieldset';
 import { UserloginComponent } from './user/userlogin/userlogin.component';
@@ -55,7 +57,10 @@ import { MessageModule } from 'primeng/message';
     FieldsetModule,
     MessageModule,
     MessagesModule,
-    TableModule
+    TableModule,
+    TabMenuModule,
+    OverlayPanelModule,
+   
   ],
   providers: [],
   bootstrap: [AppComponent]

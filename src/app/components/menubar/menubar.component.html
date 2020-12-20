@@ -1,16 +1,75 @@
-<p-menubar>
-<p-button (click)="goHome()" label="หน้าหลัก" styleClass="ui-button-info"></p-button>
-<p-button (click)="goToMyEvents()"
-label="งานจัดอบรมที่เข้าร่วม"
-styleClass="ui-button-info"
-*ngIf="this.currentUser.typeID === 2"
-></p-button>
-<p-button (click)="goToCreate()"
-label="เพิ่มงานจัดอบรม" styleClass="ui-button-info"
-*ngIf="this.currentUser.typeID === 1"></p-button>
-<p-button (click)="this.authservice.logout()"
-label="ออกจากระบบ" styleClass="ui-button-danger" *ngIf="!!this.authservice.currentUserValue"></p-button>
-<p-button (click)="goToLogin()" label="เข้าสู่ระบบ" *ngIf="!this.authservice.currentUserValue" class="btn btn-primary"></p-button>
+<!--
+p-menubar>
 
+
+    <p-button (click)="goHome()" label="หน้าหลัก" styleClass="ui-button-info"></p-button>
+    <p-button (click)="goToMyEvents()" label="งานจัดอบรมที่เข้าร่วม" styleClass="ui-button-info"
+        *ngIf="this.currentUser.typeID === 2"></p-button>
+    <p-button (click)="goToCreate()" label="เพิ่มงานจัดอบรม" styleClass="ui-button-info"
+        *ngIf="this.currentUser.typeID === 1"></p-button>
+    <p-button (click)="this.authservice.logout()" label="ออกจากระบบ" styleClass="ui-button-danger"
+        *ngIf="!!this.authservice.currentUserValue"></p-button>
+    <p-button (click)="goToLogin()" label="เข้าสู่ระบบ" *ngIf="!this.authservice.currentUserValue"
+        class="btn btn-primary"></p-button>
+   
 </p-menubar>
 <br>
+-->
+
+<h3 class="first">ระบบ Event checkIn </h3>
+
+<div class="p-grid">
+    <div class="p-col-10">
+        <p-tabMenu [model]="items0" [activeItem]="items0[0]" *ngIf="this.currentUser.typeID === 0">
+        </p-tabMenu>
+        <p-tabMenu [model]="items1" [activeItem]="items1[0]" *ngIf="this.currentUser.typeID === 1">
+        </p-tabMenu>
+        <p-tabMenu [model]="items2" [activeItem]="items2[0]" *ngIf="this.currentUser.typeID === 2">
+        </p-tabMenu>
+    </div>
+    <div class="p-col-2">
+        <p-button type="text" label="สถานะ:ยังไม่เข้าสู่ระบบ" (click)="op1.toggle($event)"
+            *ngIf="this.currentUser.typeID === 0"></p-button>
+        <p-overlayPanel #op1>
+            <div>
+                <p>กรุณาเข้าสู่ระบบ</p>
+            </div>
+
+            <p-button (click)="goToLogin()" label="เข้าสู่ระบบ" *ngIf="!this.authservice.currentUserValue"
+                class="btn btn-primary"></p-button>
+        </p-overlayPanel>
+
+
+        <p-button type="text" label="สถานะ:พนักงาน" (click)="op2.toggle($event)" 
+            *ngIf="this.currentUser.typeID === 1"></p-button>
+        <p-overlayPanel #op2>
+            <div>
+                <p> ชื่อ: nopparut changlamai</p><!--ฝากชื่อมด้วยน้า-->
+                <p> ฝ่าย: แผนกการตลาด</p>
+                <p> E-mail: nopparu@gmail.com</p>
+
+            </div>
+
+
+            <p-button (click)="this.authservice.logout()" label="ออกจากระบบ" styleClass="ui-button-danger"
+                *ngIf="!!this.authservice.currentUserValue"></p-button>
+        </p-overlayPanel>
+
+        <p-button type="text" label="สถานะ:ผู้ดูแลระบบ" (click)="op3.toggle($event)" 
+        *ngIf="this.currentUser.typeID === 2"></p-button>
+    <p-overlayPanel #op3>
+        <div>
+            <p> ชื่อ: teerapon chartchatree</p><!--ฝากชื่อมด้วยน้า-->
+            <p> E-mail: treerapon@gmail.com</p>
+
+        </div>
+
+
+        <p-button (click)="this.authservice.logout()" label="ออกจากระบบ" styleClass="ui-button-danger"
+            *ngIf="!!this.authservice.currentUserValue"></p-button>
+    </p-overlayPanel>
+
+
+
+    </div>
+</div>
