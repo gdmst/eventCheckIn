@@ -8,6 +8,7 @@ import { AuthGuard } from './auth.guard';
 import { UserloginComponent } from './user/userlogin/userlogin.component';
 import { MyEventComponent } from './user/my-event/my-event.component';
 import { UserAuthGuard } from './user/user-auth.guard';
+import { ReportComponent } from './event/report/report.component';
 
 
 const routes: Routes = [
@@ -39,6 +40,9 @@ const routes: Routes = [
     path: 'myevents',
     component: MyEventComponent,
   canActivate: [UserAuthGuard]
+  }, {
+    path: 'report',
+    component: ReportComponent
   }
 ];
 

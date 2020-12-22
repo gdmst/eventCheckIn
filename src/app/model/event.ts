@@ -1,14 +1,15 @@
 export interface Event {
   eventID: number;
-  eventName:string;
-  description:string;
+  eventName: string;
+  description: string;
   startDate: string;
   endDate: string;
+  expDate: string;
   startTime: string;
   endTime: string;
-  amount:number;
-  registered:number;
+  amount: number;
+  registered: number;
   eventStatus: number;
-  location:string;
+  location: string;
   eventProperty: number;
 }

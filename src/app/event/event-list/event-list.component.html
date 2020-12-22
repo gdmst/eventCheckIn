@@ -10,8 +10,13 @@
           <img src="Card" src="assets/images/cover.png">
         </p-header>
         <div>
-        {{ event.startDate }} <br>
-        {{ event.description | slice:1:100 }} ... </div>
+        วันจัดอบรม: {{ event.startDate }} -   {{ event.endDate }}<br>
+        ปิดรับสมัคร: {{ event.expDate }} <br>
+        สถานะ:
+        <span>
+
+         {{ this.eventService.status[event.eventStatus] }}
+         </span></div>
         <p-footer>
           <button pButton type="button" label="ดูรายละเอียด" (click)="viewEvent(event)"
             icon="pi pi-eye" style="margin-right: .25em" ></button>
@@ -19,7 +24,9 @@
           <button pButton type="button" label="ลบ" (click)="deleteEvent(event.eventID)"
             icon="pi pi-trash" class="ui-button-danger" style="margin-right: .25em"></button>
           <button pButton type="button" label="แก้ไข" (click)="editEvent(event)"
-            icon="pi pi-pencil" class="ui-button-secondary"  style="margin-right: .25em"></button>
+            icon="pi pi-pencil" *ngIf="event.eventStatus == 1" class="ui-button-secondary"  style="margin-right: .25em"></button>
+            <button pButton type="button" label="รายงาน" (click)="reportEvent(event)"
+            icon="pi pi-file-o" *ngIf="event.eventStatus == 0" class="ui-button-success"  style="margin-right: .25em"></button>
             </div>
         </p-footer>
       </p-card>

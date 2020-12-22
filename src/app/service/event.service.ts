@@ -8,23 +8,9 @@ import { HttpClient } from '@angular/common/http';
 })
 export class EventService {
   selectedEvent: Event = null;
-  eventList: Event[] = [
-    {
-      eventID: 2,
-      eventName: "Node.js",
-      description:
-        "Count the typescript down, train your skill across the year",
-      startDate: "2020-12-31",
-      endDate: "2021-01-01",
-      startTime: "09:00 AM",
-      endTime: "06:00 PM",
-      amount: 30,
-      registered: 0,
-      eventStatus: 0,
-      location: "201/2 B",
-      eventProperty: 1,
-    },
-  ];
+  eventList: Event[] = [];
+  status = ["ปิดรับสมัครแล้ว", "รับสมัคร"];
+  statusColor = ["red", "green"];
   deptList: Department[] = [
     {
       deptID: 0,
@@ -40,16 +26,16 @@ export class EventService {
     },
     {
       deptID: 3,
-      deptName: "แผนกบัญชี"
+      deptName: "แผนกบัญชี",
     },
     {
       deptID: 4,
-      deptName: "แผนกบุคคล"
+      deptName: "แผนกบุคคล",
     },
     {
       deptID: 5,
-      deptName: "แผนกบริหาร"
-    }
+      deptName: "แผนกบริหาร",
+    },
   ];
 
   constructor(public http: HttpClient) {
@@ -57,30 +43,38 @@ export class EventService {
   }
 
   getEvent() {
-    this.http.get<Event[]>("/EventCheck-In/api/event/eventList").subscribe((value) => {
-      this.eventList = value;
-      console.log("get event", value);
-    });
+    this.http
+      .get<Event[]>("/EventCheck-In/api/event/eventList")
+      .subscribe((value) => {
+        this.eventList = value;
+        console.log("get event", value);
+      });
   }
 
   deleteEvent(eventID) {
-    this.http.delete<Event[]>("/EventCheck-In/api/event/"+eventID).subscribe((value) => {
-      this.getEvent();
-      console.log("delete event", value);
-    });
+    this.http
+      .delete<Event[]>("/EventCheck-In/api/event/" + eventID)
+      .subscribe((value) => {
+        this.getEvent();
+        console.log("delete event", value);
+      });
   }
 
   addEvent(payload) {
-    this.http.post<Event[]>("/EventCheck-In/api/event/createEvent", payload).subscribe((value) => {
-      this.getEvent();
-      console.log("create event", value);
-    });
+    this.http
+      .post<Event[]>("/EventCheck-In/api/event/createEvent", payload)
+      .subscribe((value) => {
+        this.getEvent();
+        console.log("create event", value);
+      });
   }
 
   updateEvent(payload) {
-    this.http.put<Event[]>("/EventCheck-In/api/event/updateEvent", payload).subscribe((value) => {
-      this.getEvent();
-      console.log("update event", value);
-    });
+    this.http
+      .put<Event[]>("/EventCheck-In/api/event/updateEvent", payload)
+      .subscribe((value) => {
+        this.getEvent();
+        console.log("update event", value);
+      });
   }
 }

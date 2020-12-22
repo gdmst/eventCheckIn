@@ -49,14 +49,20 @@ export class AdminloginComponent implements OnInit {
     }
 
     this.loading = true;
-    this.authenticationService.login(this.f.username.value, this.f.password.value)
+    this.authenticationService
+      .login(this.f.username.value, this.f.password.value)
       .pipe(first())
       .subscribe(
-        data => {
-          this.router.navigate([this.returnUrl]);
+        (data) => {
+          if (!data) {
+            alert("ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง");
+          } else {
+            window.location.href = "/events";
+          }
         },
-        error => {
-          this.loading = false;
-        });
+        (error) => {
+          alert("ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง");
+        }
+      );
   }
 }

@@ -28,6 +28,7 @@ import { UserloginComponent } from './user/userlogin/userlogin.component';
 import { MyEventComponent } from './user/my-event/my-event.component';
 import { MessagesModule } from 'primeng/messages';
 import { MessageModule } from 'primeng/message';
+import { ReportComponent } from './event/report/report.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -38,7 +39,8 @@ import { MessageModule } from 'primeng/message';
     RegistListComponent,
     AdminloginComponent,
     UserloginComponent,
-    MyEventComponent
+    MyEventComponent,
+    ReportComponent
 
   ],
   imports: [

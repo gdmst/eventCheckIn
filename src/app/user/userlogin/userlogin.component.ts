@@ -53,10 +53,14 @@ export class UserloginComponent implements OnInit {
       .pipe(first())
       .subscribe(
         data => {
-          this.router.navigate([this.returnUrl]);
+          if(!data){
+          alert("ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง");
+          } else{
+            window.location.href = ("/events");
+          }
         },
         error => {
-          //this.loading = false;
+          alert('ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง');
         });
   }
 }

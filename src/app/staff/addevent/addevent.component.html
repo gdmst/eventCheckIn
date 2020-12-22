@@ -2,8 +2,17 @@
 <div class="p-grid">
     <div class="p-col-3">
     </div>
-    <div class="p-col-6">
-      <label>ชื่อ Event</label> <input type="text" formControlName="eventName" pInputText placeholder="ชื่อ event">
+    <div class="p-col-1">
+      <label>ชื่องานจัดอบรม</label>
+    </div>
+    <div class="p-col-2">
+      <input type="text" formControlName="eventName" pInputText placeholder="ชื่อ event" required>
+    </div>
+        <div class="p-col-1">
+      <label>จำนวนที่รับ</label>
+    </div>
+    <div class="p-col-2">
+      <input type="number" formControlName="amount" pInputText [disabled]="!!this.eventService.selectedEvent" required>
     </div>
     <div class="p-col-3">
     </div>
@@ -11,36 +20,36 @@
 
     <div class="p-col-3">
     </div>
-    <div class="p-col-3">
-      <label>วันที่เริ่ม</label><input type="date" formControlName="startDate" pInputText placeholder="วันที่เริ่ม">
+    <div class="p-col-1">
+      <label>วันที่เริ่ม</label>
     </div>
-    <div class="p-col-3">
-      <label>วันที่สิ้นสุด</label> <input type="date" formControlName="endDate" pInputText placeholder="วันที่เริ่ม">
+    <div class="p-col-2">
+      <input type="date" [disabled]="!!this.eventService.selectedEvent" formControlName="startDate" pInputText placeholder="วันที่เริ่ม" required>
     </div>
-    <div class="p-col-3">
+    <div class="p-col-1">
+      <label>วันที่สิ้นสุด</label>
     </div>
-
-
-
-    <div class="p-col-3">
-    </div>
-    <div class="p-col-3">
-      <label>เวลาเริ่ม</label> <input type="time" formControlName="startTime" pInputText placeholder="วันที่เริ่ม">
-    </div>
-    <div class="p-col-3">
-      <label>เวลาสิ้นสุด</label>  <input type="time" formControlName="endTime" pInputText placeholder="วันที่เริ่ม">
+    <div class="p-col-2">
+     <input type="date" [disabled]="!!this.eventService.selectedEvent" formControlName="endDate" pInputText placeholder="วันที่เริ่ม" required>
     </div>
     <div class="p-col-3">
     </div>
 
 
+
     <div class="p-col-3">
     </div>
-    <div class="p-col-3">
-      <label>จำนวน</label>  <input type="number" formControlName="amount" pInputText placeholder="วันที่เริ่ม">
+    <div class="p-col-1">
+      <label>เวลาเริ่ม</label>
+      </div>
+    <div class="p-col-2">
+    <input type="time" formControlName="startTime" pInputText placeholder="วันที่เริ่ม" required>
     </div>
-    <div class="p-col-3">
-      <label>สถานที่</label> <input type="text" formControlName="location" pInputText>
+    <div class="p-col-1">
+      <label>เวลาสิ้นสุด</label>
+    </div>
+    <div class="p-col-2">
+      <input type="time" formControlName="endTime" pInputText placeholder="วันที่เริ่ม" required>
     </div>
     <div class="p-col-3">
     </div>
@@ -48,34 +57,53 @@
 
     <div class="p-col-3">
     </div>
-    <div class="p-col-6">
+        <div class="p-col-1">
+      <label>ปิดรับสมัคร</label>
+    </div>
+    <div class="p-col-2">
+      <input type="date" formControlName="expDate" pInputText required>
+    </div>
+    <div class="p-col-1">
+      <label>สถานที่</label>
+    </div>
+    <div class="p-col-2">
+      <input type="text" formControlName="location" pInputText required>
+    </div>
+    <div class="p-col-3">
+    </div>
+
+
+    <div class="p-col-3">
+    </div>
+    <div class="p-col-2">
     <label>แผนกที่สามารถเข้าร่วมอบรมได้</label>
-    <p-dropdown [options]="deptList" formControlName="eventProperty" optionLabel="deptName"></p-dropdown>
+    </div>
+    <div class="p-col-3">
+    <p-dropdown [options]="deptList" formControlName="eventProperty" required optionLabel="deptName"></p-dropdown>
     </div>
     <div class="p-col-3">
     </div>
 <div class="p-col-3">
     </div>
-    <div class="p-col-6">
+    <div class="p-col-1">
     <label>รายละเอียด</label>
-    <textarea [rows]="5" [cols]="30"  formControlName="description" pInputTextarea autoResize="autoResize"></textarea>
+    </div>
+    <div class="p-col-5">
+    <textarea [rows]="10" [cols]="50"  formControlName="description" required pInputTextarea autoResize="autoResize"></textarea>
     </div>
     <div class="p-col-3">
     </div>
 
-  <div class="p-col-3">
+  <div class="p-col-5">
     </div>
-    <div class="p-col-6">
-    <button pButton type="submit" icon="pi pi-plus" iconPos="left" class="ui-button-info" label="เพิ่ม event"
+    <div class="p-col-4">
+    <button pButton type="submit" icon="pi pi-check" iconPos="left" class="ui-button-success" label="เพิ่ม event"
     *ngIf="!this.eventService.selectedEvent"></button>
-    <button pButton type="submit" icon="pi pi-plus" iconPos="left" class="ui-button-info" label="บันทึก"
+    <button pButton type="submit" icon="pi pi-file-o" iconPos="left" class="ui-button-success" label="บันทึก"
     *ngIf="!!this.eventService.selectedEvent"></button>
-    <button pButton type="button" icon="pi " iconPos="left" class="ui-button-secondary" label="กลับ"
-    ></button>
     </div>
     <div class="p-col-3">
     </div>
 </div>
 </form>
 
-{{ this.myForm.get('eventID').value | json }}

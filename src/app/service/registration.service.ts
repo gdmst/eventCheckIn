@@ -44,7 +44,6 @@ export class RegistrationService {
       console.log("check in particapants", value);
     });
   }
-
   cancel(eventID, payload) {
     this.http.put<Registration>("/EventCheck-In/api/register/cancelRegistration", payload).subscribe((value) => {
       this.getRegistration(eventID);
