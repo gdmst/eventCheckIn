@@ -1,1 +1,75 @@
-<p>report works!</p>
+<div class="p-grid">
+    <!--บรรทัด5-->
+<div class="p-col-6"> <h3>รายงานผู้เข้าร่วมของ: {{ this.eventService.selectedEvent.eventName }}</h3></div>
+<!--<p-card header="{{ this.eventService.selectedEvent.eventName }}" [style]="{width: '800px'}">
+    <p-header>
+      <img src="Card" src="assets/images/cover2.png">
+    </p-header>
+
+    <div>วันที่: {{ this.eventService.selectedEvent.startDate }} - {{ this.eventService.selectedEvent.endDate }}
+    </div>
+    <div>เวลา: {{ this.eventService.selectedEvent.startTime }} - {{ this.eventService.selectedEvent.endTime }} </div>
+    <p-footer>
+      <div>สถานที่: {{ this.eventService.selectedEvent.location }} </div>
+    </p-footer>
+  </p-card>-->
+  
+  <div class="p-col-12"></div>
+  <div class="p-col-1"></div> <!--บรรทัด6-->
+  <div><p>รายชื่อผู้เข้าร่วม</p>  </div>
+  <div class="p-col-11"></div>
+  <div class="p-col-1"></div>
+  <div class="p-col-1"></div> <!--บรรทัด7-->
+  <div class="p-col-10"><p-table [value]="this.regService.participants">
+    <ng-template pTemplate="header">
+        <tr>
+            <th>ชื่อ</th>
+            <th>รหัสพนักงาน</th>
+            <th>ฝ่าย</th>
+            <th>วันที่และเวลามาร่วมงาน</th>
+         
+  
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-item>
+        <tr>
+            <td>{{item.empUser.fname}}  {{item.empUser.lname}}</td>
+            <td>{{item.empUser.empID}}</td>
+            <td>{{ this.eventService.deptList[item.empUser.dept.deptID]['deptName'] }}</td>
+            <td>{{item.checkinDateTime}}</td>
+         
+        </tr>
+    </ng-template>
+  </p-table>
+  </div>
+
+  <div class="p-col-12"></div>
+  <div class="p-col-1"><p></p></div> <!--บรรทัด6-->
+  <div class="p-col-1"><p>รายชื่อผู้ไม่เข้ารวม</p></div>
+  <div class="p-col-11"></div>
+  <div class="p-col-1"></div>
+  <div class="p-col-1"></div> <!--บรรทัด7-->
+  <div class="p-col-10"><p-table [value]="this.regService.participants">
+    <ng-template pTemplate="header">
+        <tr>
+            <th>ชื่อ</th>
+            <th>รหัสพนักงาน</th>
+            <th>ฝ่าย</th>
+          
+         
+  
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-item>
+        <tr>
+            <td>{{item.empUser.fname}}  {{item.empUser.lname}}</td>
+            <td>{{item.empUser.empID}}</td>
+            <td>{{ this.eventService.deptList[item.empUser.dept.deptID]['deptName'] }}</td>
+       >
+         
+        </tr>
+    </ng-template>
+  </p-table>
+  </div>
+  
+</div>
